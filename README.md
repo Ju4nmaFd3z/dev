@@ -12,16 +12,16 @@ Este repositorio está dividido por temas, siguiendo la estructura del contenido
 
 ### 🔗 Acceso directo a los temas:
 
-- [Ejercicios Tema 1](./tema_1/)
-- [Ejercicios Tema 2](./tema_2/)
-- [Ejercicios Tema 3](./tema_3/)
-- [Ejercicios Tema 4](./tema_4/)
-- [Ejercicios Tema 5](./tema_5/)
-- [Ejercicios Tema 6](./tema_6/)
-- [Ejercicios Tema 7](./tema_7/)
-- [Ejercicios Tema 8](./tema_8/)
-- [Ejercicios Tema 9](./tema_9/)
-- [Ejercicios Tema 10](./tema_10/)
+- [Ejercicios Tema 1](./src/tema_1/)
+- [Ejercicios Tema 2](./src/tema_2/)
+- [Ejercicios Tema 3](./src/tema_3/)
+- [Ejercicios Tema 4](./src/tema_4/)
+- Ejercicios Tema 5
+- Ejercicios Tema 6
+- Ejercicios Tema 7
+- Ejercicios Tema 8
+- Ejercicios Tema 9
+- Ejercicios Tema 10
 
 ---
 

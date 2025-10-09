@@ -27,7 +27,6 @@ public class ejercicio_04_01 {
                 break;
             default:
                 System.out.print("Has introducido un día incorrecto");
-                break;
         }
     }
 }

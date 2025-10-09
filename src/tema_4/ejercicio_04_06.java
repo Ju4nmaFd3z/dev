@@ -11,9 +11,7 @@ public class ejercicio_04_06 {
             System.out.println("Introduce una altura válida");
         }
         else {
-            System.out.printf("El objeto tarda %d en caer.%n", s);
+            System.out.printf("El objeto tarda %.2f en caer.%n", s);
         }
     }
 }
-
-//DUDA GENERAL

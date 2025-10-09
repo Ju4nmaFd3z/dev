@@ -2,7 +2,7 @@ package tema_4;
 
 public class ejercicio_04_03 {
     public static void main(String[] args) {
-        String diaSemana = "";//Duda Nº1
+        String diaSemana;
         System.out.print("Introduzca un número del 1 al 7: ");
         int numDia = Integer.parseInt(System.console().readLine());
         switch (numDia) {
@@ -28,8 +28,7 @@ public class ejercicio_04_03 {
                 diaSemana = "Domingo";
                 break;
             default:
-                System.out.println("Introduce un número del 1 al 7");
-                break;//Duda Nº2
+                diaSemana = "Introduce un número del 1 al 7";
         }
         System.out.println(diaSemana);
     }

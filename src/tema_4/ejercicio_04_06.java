@@ -5,8 +5,8 @@ public class ejercicio_04_06 {
         System.out.println("Cálculo del tiempo de caída de un objeto.");
         System.out.print("Por favor, introduzca la altura (en metros) desde la que cae el objeto: ");
         double h = Double.parseDouble(System.console().readLine());
-        final double g = 9.81;
-        double s = Math.sqrt(2*h/g);
+        final double G = 9.81;
+        double s = Math.sqrt(2*h/G);
         if (h<=0) {
             System.out.println("Introduce una altura válida");
         }

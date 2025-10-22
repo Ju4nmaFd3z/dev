@@ -5,7 +5,7 @@ public class ejercicio_05_08 {
         try {
             int num = Integer.parseInt(System.console().readLine("Introduzca un número y le mostraré su tabla de multiplicar: "));
             for (int i=0; i<=10; i++){
-            System.out.printf("%d x %d = %d%n", num, i, num*i);
+            System.out.printf("%d x %2d = %2d%n", num, i, num*i);
             }
         } catch (NumberFormatException e) {
             System.out.println("Ha introducido un valor incorrecto.");

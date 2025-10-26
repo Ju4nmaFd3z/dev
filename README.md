@@ -16,12 +16,6 @@ Este repositorio está dividido por temas, siguiendo la estructura del contenido
 - [Ejercicios Tema 2](./src/tema_2/)
 - [Ejercicios Tema 3](./src/tema_3/)
 - [Ejercicios Tema 4](./src/tema_4/)
-- Ejercicios Tema 5
-- Ejercicios Tema 6
-- Ejercicios Tema 7
-- Ejercicios Tema 8
-- Ejercicios Tema 9
-- Ejercicios Tema 10
 
 ---
 

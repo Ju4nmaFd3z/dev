@@ -5,7 +5,8 @@ public class ejercicio_05_19 {
         try {
             int altura = Integer.parseInt(System.console().readLine("Por favor, introduzca la altura de la pirámide: "));
             String relleno = System.console().readLine("Introduzca el carácter de relleno: ");
-            for (int fila=1; fila<=altura; fila++) {
+            int fila = 1;
+            while (fila<=altura) {
                 for (int i=1; i<=altura-fila; i++) {
                     System.out.print(" ");
                 }
@@ -13,6 +14,7 @@ public class ejercicio_05_19 {
                     System.out.print(relleno);
                 }
                 System.out.println();
+                fila++;
             }
         } catch (NumberFormatException e) {
             System.out.println("Ha introducido un valor incorrecto.");

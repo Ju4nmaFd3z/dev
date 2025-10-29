@@ -4,7 +4,7 @@ public class ejercicio_05_25 {
     public static void main(String[] args) {
         try {
             int num = Integer.parseInt(System.console().readLine("Introduzca un número entero: "));
-            int aux = num;
+            int aux = num*10+1;
             int invertido = 0;
             while (aux>0) {
                 int ultimaCifra = aux%10;

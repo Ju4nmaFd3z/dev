@@ -11,7 +11,7 @@ public class ejercicio_05_25 {
                 invertido = invertido * 10 + ultimaCifra;
                 aux = aux/10;
             }
-            System.out.printf("Si le damos la vuelta al %d tenemos el %d.", num, invertido);
+            System.out.printf("Si le damos la vuelta al %d tenemos el %d.", num, invertido/10);
         } catch (NumberFormatException e) {
             System.out.println("Ha introducido un valor incorrecto.");
         } catch (Exception e) {

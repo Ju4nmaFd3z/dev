@@ -4,7 +4,7 @@ public class ejercicio_05_35 {
     public static void main(String[] args) {
         int altura = Integer.parseInt(System.console().readLine("Por favor, introduzca la altura de la X: "));
         int fila=1;
-        if (altura>=3) {
+        if (altura%2!=0&&altura>=3) {
             while (fila <= altura) {
                 int col = 1;
                 while (col <= altura) {
@@ -19,7 +19,7 @@ public class ejercicio_05_35 {
                 fila++;
             }
         } else {
-            System.out.println("Debe introducir una altura mayot o igual a 3.");
+            System.out.println("Debe introducir una altura mayor o igual a 3.");
             return;
         }
     }

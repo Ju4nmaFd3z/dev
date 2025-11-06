@@ -4,7 +4,11 @@ public class ejercicio_05_38 {
     public static void main(String[] args) {
         try {
             int altura = Integer.parseInt(System.console().readLine("Por favor, introduzca la altura del reloj de arena: "));
-            
+            if (altura < 3) {
+                System.out.println("La altura debe ser al menos 3.");
+                return;
+            }
+            altura=(altura+1)/2;
             int fila = 1;
             while (fila <= altura) {
                 for (int i = 1; i <= fila - 1; i++) {

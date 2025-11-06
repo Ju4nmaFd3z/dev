@@ -4,11 +4,12 @@ public class ejercicio_05_40 {
     public static void main(String[] args) {
         try {
             int altura = Integer.parseInt(System.console().readLine("Por favor, introduzca la altura del rombo: "));
-        if (altura < 2) {
-            System.out.println("La altura debe ser al menos 2.");
-            return;
-        }
-            int fila = 1;
+            if (altura < 2) {
+                System.out.println("La altura debe ser al menos 2.");
+                return;
+            }
+            int mitad = (altura+1)/2;
+            int fila = mitad;
             while (fila<=altura) {
                 for (int i=1; i<=altura-fila; i++) {
                     System.out.print(" ");

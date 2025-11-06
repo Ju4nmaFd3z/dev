@@ -1,7 +1,5 @@
 package tema_5;
 
-import java.nio.channels.Pipe.SourceChannel;
-
 public class ejercicio_05_40 {
     public static void main(String[] args) {
         try {

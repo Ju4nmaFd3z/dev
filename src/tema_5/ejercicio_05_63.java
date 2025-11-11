@@ -14,17 +14,24 @@ public class ejercicio_05_63 {
                     for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
                     System.out.print(" ");
                     if (!(fila<=altMax-altura2)) {
-                        // System.out.print("ASDASDASDA");
-                        for (int i=1; i<=altMax-fila; i++) System.out.print("8");
-                        for (int i=1; i<=2*fila-altura1; i++) System.out.print("*");
-                        // for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
-                        // for (int i=1; i<=2*fila-altMax-1; i++) System.out.print("*");
+                        for (int i=1; i<=altMax-fila; i++) System.out.print(" ");
+                        for (int i=1; i<=2*(fila-altura1+altura2)-1; i++) System.out.print("*");
                     }
                 }
                 if (altura1==altura2) {
                     for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
                     for (int i=1; i<=2*fila-1; i++) System.out.print("*");
                     for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
+                    System.out.print(" ");
+                    for (int i=1; i<=altura2-fila; i++) System.out.print(" ");
+                    for (int i=1; i<=2*fila-1; i++) System.out.print("*");
+                }
+                if (altura2>altura1) {
+                    if (!(fila<=altMax-altura1)) {
+                        for (int i=1; i<=altMax-fila; i++) System.out.print(" ");
+                        for (int i=1; i<=2*fila-(2*(altura2-altura1))-1; i++) System.out.print("*");
+                        for (int i=1; i<=altMax-fila; i++) System.out.print(" ");
+                    } else for (int i=1; i<=2*altura1-1; i++) System.out.print(" ");
                     System.out.print(" ");
                     for (int i=1; i<=altura2-fila; i++) System.out.print(" ");
                     for (int i=1; i<=2*fila-1; i++) System.out.print("*");

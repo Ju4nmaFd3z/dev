@@ -8,9 +8,9 @@ public class ejercicio_05_59 {
                 System.out.println("La altura debe ser mayor o igual a 4");
                 return;
             }
-            int fila = 0;
+            int fila = 1;
             while (fila <= altura) {
-                if (fila == 0) {
+                if (fila == 1) {
                     for (int i = 1; i < altura - fila; i++) {
                         System.out.print(" ");
                     }
@@ -22,15 +22,15 @@ public class ejercicio_05_59 {
                     for (int i = 2; i <= altura-fila+1; i++) {
                         System.out.print(" ");
                     }
-                    for (int i = 1; i <= 2*fila-1; i++) {
-                        if (i==1||fila==altura-1||i==2*fila-1) System.out.print("^");
+                    for (int i = 1; i < 2*fila-2; i++) {
+                        if (i==1||fila==altura-1||i==2*fila-3) System.out.print("^");
                         else System.out.print(" ");
                     }
                     System.out.println();
                     fila++;
                 }
                 if (fila == altura) {
-                    for (int i = 1; i <= altura - 1; i++) {
+                    for (int i = 1; i < altura-1; i++) {
                         System.out.print(" ");
                     }
                     System.out.print("Y");

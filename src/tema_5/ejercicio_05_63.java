@@ -8,23 +8,15 @@ public class ejercicio_05_63 {
             int altMax = Math.max(altura1, altura2);
             int fila = 1;
             while (fila<=altMax) {
-                if (altura1>altura2) {
+                if (altura1>=altura2) {
                     for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
                     for (int i=1; i<=2*fila-1; i++) System.out.print("*");
                     for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
                     System.out.print(" ");
-                    if (!(fila<=altMax-altura2)) {
-                        for (int i=1; i<=altMax-fila; i++) System.out.print(" ");
-                        for (int i=1; i<=2*(fila-altura1+altura2)-1; i++) System.out.print("*");
+                    if (fila>altMax-altura2) {
+                        for (int i=1; i<=((altura2>altura1)?altura2:altMax)-fila; i++) System.out.print(" ");
+                        for (int i=1; i<=2*((altura2>altura1)?2*fila:(fila-altura1+altura2))-1; i++) System.out.print("*");
                     }
-                }
-                if (altura1==altura2) {
-                    for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
-                    for (int i=1; i<=2*fila-1; i++) System.out.print("*");
-                    for (int i=1; i<=altura1-fila; i++) System.out.print(" ");
-                    System.out.print(" ");
-                    for (int i=1; i<=altura2-fila; i++) System.out.print(" ");
-                    for (int i=1; i<=2*fila-1; i++) System.out.print("*");
                 }
                 if (altura2>altura1) {
                     if (!(fila<=altMax-altura1)) {

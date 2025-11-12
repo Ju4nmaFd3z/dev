@@ -7,7 +7,7 @@ public class ejercicio_05_67 {
             int alturaEscalones = Integer.parseInt(System.console().readLine("Introduzca la altura de cada escalón: "));
             int fila = 1;
             while (fila<=alturaEscalones*numEscalones) {
-                for (int i=1; i<= fila; i+=2) {
+                for (int i=1; i<=fila; i+=2) {
                     System.out.print("****");
                 }
                 System.out.println();

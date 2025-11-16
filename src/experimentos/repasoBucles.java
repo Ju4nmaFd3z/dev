@@ -15,23 +15,31 @@ public class repasoBucles {
             int vy = 0;
             boolean salir = false;
             boolean auto = false;
+            boolean tocaArriba = false;
+            boolean tocaAbajo = false;
+            boolean tocaIzquierda = false;
+            boolean tocaDerecha = false;
+            int xTocaArriba = 0;
+            int xTocaAbajo = 0;
+            int yTocaIzquierda = 0;
+            int yTocaDerecha = 0;
             while (!salir) {
                 for (int i = 1; i <= alto; i++) {
                     for (int j = 1; j <= ancho; j++) {
                         if (i == 1) {
-                            if (y<=2) {
+                            if (tocaArriba&&j==xTocaArriba) {
                                 System.out.print(GREEN_BACKGROUND+" "+RESET);
                             } else System.out.print(WHITE_BACKGROUND+" "+RESET);
                         } else if (i == alto) {
-                            if (y>=alto-1) {
+                            if (tocaAbajo&&j==xTocaAbajo) {
                                 System.out.print(GREEN_BACKGROUND+" "+RESET);
                             } else System.out.print(WHITE_BACKGROUND+" "+RESET);
                         } else if (j == 1) {
-                            if (x<=2) {
+                            if (tocaIzquierda&&i==yTocaIzquierda) {
                                 System.out.print(GREEN_BACKGROUND+" "+RESET);
                             } else System.out.print(WHITE_BACKGROUND+" "+RESET);
                         } else if (j == ancho) {
-                            if (x>=ancho-1) {
+                            if (tocaDerecha&&i==yTocaDerecha) {
                                 System.out.print(GREEN_BACKGROUND+" "+RESET);
                             } else System.out.print(WHITE_BACKGROUND+" "+RESET);
                         } else if (i==y && j==x) {
@@ -82,16 +90,44 @@ public class repasoBucles {
                 } else {
                     x+=vx;
                     y+=vy;
-                    if ((x<=1&&vx<0)||(x>=ancho&&vx>0)) {
+                    if ((x<=2&&vx<0)||(x>=ancho-1&&vx>0)) {
+                        if (x<=2&&vx<0) {
+                            tocaArriba=false;
+                            tocaAbajo=false;
+                            tocaIzquierda=true;
+                            tocaDerecha=false;
+                            yTocaIzquierda=y;
+                        }
+                        if (x>=ancho-1&&vx>0) {
+                            tocaArriba=false;
+                            tocaAbajo=false;
+                            tocaIzquierda=false;
+                            tocaDerecha=true;
+                            yTocaDerecha=y;
+                        }
                         x=vx<0?2:ancho-1;
                         vx*=-1;
                     }
-                    if ((y<=1&&vy<0)||(y>=alto&&vy>0)) {
+                    if ((y<=2&&vy<0)||(y>=alto-1&&vy>0)) {
+                        if (y<=2&&vy<0) {
+                            tocaArriba=true;
+                            tocaAbajo=false;
+                            tocaIzquierda=false;
+                            tocaDerecha=false;
+                            xTocaArriba=x;
+                        }
+                        if (y>=alto-1&&vy>0) {
+                            tocaArriba=false;
+                            tocaAbajo=true;
+                            tocaIzquierda=false;
+                            tocaDerecha=false;
+                            xTocaAbajo=x;
+                        }
                         y=vy<0?2:alto-1;
                         vy*=-1;
                     }
                 }
-                Thread.sleep(100);
+                Thread.sleep(175);
                 System.out.print(CLEAN_SCREEN);
             }
         } catch (NumberFormatException e) {

@@ -2,23 +2,25 @@ package experimentos;
 
 public class serpiente {
     public static final String CLEAN_SCREEN = "\033[H\033[2J";
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) {
         try {
-            int altura = Integer.parseInt(System.console().readLine("Introduzca la altura de la serpiente: "));
-            int desplazamiento = 10;
-            int ultimaPosicion = desplazamiento;
+            int altura = Integer.parseInt(System.console().readLine("Introduce la altura de la serpiente: "));
+            int posicionInicial = 10;
+            int ultPosicion = posicionInicial;
             do {
-                for (int i=1; i<=ultimaPosicion; i++) {
+                for (int i = 1; i <= ultPosicion; i++) {
                     System.out.print(" ");
                 }
                 System.out.println("@");
-                for (int i=1; i<=altura-1; i++) {
-                    int posicion = Math.min(30, Math.max(0, ultimaPosicion+((int)(Math.round(Math.random()*2)))-1));
-                    for (int j=1; j<=posicion; j++) {
+                for (int i = 1; i <= altura; i++) {
+                    int movimiento = (int) Math.round(Math.random() * 2) - 1;
+                    int posicion = Math.min(30, Math.max(0, ultPosicion + movimiento));
+                    for (int j = 1; j <= posicion; j++) {
                         System.out.print(" ");
                     }
                     System.out.println("*");
-                    ultimaPosicion = posicion;
+                    ultPosicion = posicion;
                 }
                 Thread.sleep(100);
                 System.out.print(CLEAN_SCREEN);

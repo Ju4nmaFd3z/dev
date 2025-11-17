@@ -1,10 +1,7 @@
 package experimentos;
 
 public class relojArena {
-    public static void limpiarPantalla() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+    public static final String CLEAN_SCREEN = "\033[H\033[2J";
     public static void main(String[] args) throws Exception {
         int alturaMitad = 10;
         int fila;
@@ -46,7 +43,7 @@ public class relojArena {
             nivelArenaArriba--;
             nivelArenaAbajo--;
             Thread.sleep(500);
-            limpiarPantalla();
+            System.out.print(CLEAN_SCREEN);
         } while (true);
     }
 }

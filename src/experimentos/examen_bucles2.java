@@ -26,6 +26,10 @@ public class examen_bucles2 {
                 switch (opcion) {
                     case 1:
                         int num = Integer.parseInt(System.console().readLine("Introduce un número del 0 al 9: "));
+                        if (num<0||num>9) {
+                            System.out.println("Debes introducir un valor correcto!");
+                            return;
+                        }
                         for (int i=1; i<= 7; i++) {
                             for (int digito=0; digito<=num; digito++) {
                                 boolean superior = false; // Barra superior
@@ -126,6 +130,10 @@ public class examen_bucles2 {
                         break;
                     case 2:
                         num = Integer.parseInt(System.console().readLine("Introduce un número del 0 al 9: "));
+                        if (num<0||num>9) {
+                            System.out.println("Debes introducir un valor correcto!");
+                            return;
+                        }
                         for (int i=1; i<= 7; i++) {
                             boolean superior = false; // Barra superior
                             boolean superiorDerecha = false; // Barra superior derecha

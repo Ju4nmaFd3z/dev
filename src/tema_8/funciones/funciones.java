@@ -1,162 +1,213 @@
 package tema_8.funciones;
 
-public class funciones {
+public interface funciones {
+
     /**
-     * Esta función te devuelve la potencia de una base y un exponente introducidos por teclado.
-     * @param
-     * @return Potencia.
+     * Comprueba si un número es capicúa (se lee igual de izquierda a derecha que de derecha a izquierda).
+     * 
+     * @param num el número a comprobar
+     * @return true si el número es capicúa, false en caso contrario
      */
-    public static double potencia(int x, int y) {
-        double resultado = 1;
-            if (y>0) {
-                while (y>0) {
-                    resultado*=x;
-                    y--;
-                }
-            } else if (y<0) {
-                while (y<0) {
-                    resultado/=x;
-                    y++;
-                }
-            } else resultado = 1;
-        return resultado;
+    public static boolean esCapicua(int num) {
+        return num == voltea(num);
     }
 
     /**
-     * Esta función te devuelve un valor booleano indicando si el número introducido es o no capicúa.
-     * @param x
-     * @return True/False
+     * Comprueba si un número es primo.
+     * Un número primo es aquel que solo es divisible por 1 y por sí mismo.
+     * 
+     * @param num el número a comprobar
+     * @return true si el número es primo, false en caso contrario
      */
-    public static boolean esCapicua(int x) {
-        boolean esCapicua = false;
-        if (x==voltea(x)) {
-            esCapicua = true;
+    public static boolean esPrimo(int num) {
+        if (num <= 1) return false;
+        for (int i=2; i<=Math.sqrt(num); i++) {
+            if (num%i==0) return false;
         }
-        return esCapicua;
+        return true;
     }
 
     /**
-     * Esta función te devuelve un número volteado.
-     * @param x
-     * @return Número Volteado.
+     * Devuelve el siguiente número primo al número dado.
+     * 
+     * @param num el número a partir del cual buscar el siguiente primo
+     * @return el siguiente número primo después de num
      */
-    public static int voltea(int x) {
-        int aux = x;
-        int invertido = 0;
-        while (aux!=0) {
-            int ultDig = aux%10;
-            invertido = invertido*10+ultDig;
-            aux /= 10;
+    public static int siguientePrimo(int num) {
+        num+=1;
+        while (!esPrimo(num)) {
+            num++;
         }
-        return invertido;
+        return num;
     }
 
     /**
-     * Esta función te devuelve la posición de la primera ocurrencia del número que le hayamos dicho.
-     * @param x
-     * @return Posición de la primera ocurrencia del número que le hayamos dicho.
+     * Quita una cantidad de dígitos por la derecha de un número.
+     * 
+     * @param num el número al que quitar dígitos
+     * @param digitos la cantidad de dígitos a eliminar por la derecha
+     * @return el número resultante sin los dígitos de la derecha
      */
-    public static int posicionDeDigito(int x, int y) {
-        x = Math.abs(x);
-        x = voltea(x);
-        int digitoActual;
-        int posicion = 0;
-        while (x>0) {
-            digitoActual = x%10;
-            if (digitoActual==y) return posicion;
-            x/=10;
-            posicion++;
+    public static int quitaPorDetras(int num, int digitos) {
+        num = num/(int)potencia(10, digitos);
+        return num;
+    }
+
+    /**
+     * Quita una cantidad de dígitos por la izquierda de un número.
+     * 
+     * @param num el número al que quitar dígitos
+     * @param digitos la cantidad de dígitos a eliminar por la izquierda
+     * @return el número resultante sin los dígitos de la izquierda
+     */
+    public static int quitaPorDelante(int num, int digitos) {
+        num = num%(int)potencia(10, digitos(num)-digitos);
+        return num;
+    }
+
+    /**
+     * Calcula la potencia de un número (base elevada a exponente).
+     * Soporta exponentes negativos devolviendo un valor decimal.
+     * 
+     * @param base la base de la potencia
+     * @param exponente el exponente de la potencia
+     * @return el resultado de elevar base a exponente
+     */
+    public static double potencia(int base, int exponente) {
+        return (exponente<0)?1.0/_potencia(base, -exponente):(exponente==0)?1:_potencia(base, exponente);
+    }
+
+    /**
+     * Método auxiliar privado para calcular potencias con exponentes positivos.
+     * 
+     * @param base la base de la potencia
+     * @param exponente el exponente de la potencia (se usa su valor absoluto)
+     * @return el resultado de elevar base a exponente
+     */
+    private static int _potencia(int base, int exponente) {
+        int res = 1;
+        for (int i=1; i<=Math.abs(exponente); i++) {
+            res*=base;
+        }
+        return res;
+    }
+
+    /**
+     * Devuelve la posición de la primera aparición de un dígito en un número.
+     * Las posiciones se cuentan de izquierda a derecha empezando por 0.
+     * 
+     * @param num el número en el que buscar
+     * @param dig el dígito a buscar (debe estar entre 0 y 9)
+     * @return la posición del dígito, o -1 si no se encuentra o el dígito no es válido
+     */
+    public static int posicionDeDigito(int num, int dig) {
+        if (dig < 0 || dig > 9) return -1;
+        for (int i=0; i<digitos(num); i++){
+            if (digitoN(num, i)==dig) return i;
         }
         return -1;
     }
 
     /**
-     * Esta función le quita a un número n dígitos por detrás.
-     * @param x
-     * @return Número recortado.
+     * Extrae un trozo de un número desde una posición inicial hasta una posición final.
+     * Las posiciones se cuentan de izquierda a derecha empezando por 0.
+     * 
+     * @param num el número del que extraer el trozo
+     * @param posIni la posición inicial (inclusiva)
+     * @param posFin la posición final (inclusiva)
+     * @return el trozo del número, o el número completo si posIni > posFin
      */
-    public static int quitaPorDetras(int x, int y) {
-        x = Math.abs(x);
-        for (int i=1; i<=y; i++) {
-            x/=10;
+    public static int trozoDeNumero(int num, int posIni, int posFin) {
+        if (posIni<=posFin) {
+            num = quitaPorDetras(num, digitos(num)-posFin-1);
+            num = quitaPorDelante(num, posIni);
+            return num;
         }
-        return x*((x<0)?-1:1);
+        return num;
     }
 
     /**
-     * Esta función le quita a un número n dígitos por delante.
-     * @param x
-     * @return Número recortado.
+     * Junta dos números concatenándolos (el segundo número se añade al final del primero).
+     * 
+     * @param num1 el primer número
+     * @param num2 el segundo número que se añadirá al final del primero
+     * @return el número resultante de juntar num1 y num2
      */
-    public static int quitaPorDelante(int x, int y) {
-        x = Math.abs(x);
-        x = voltea(x);
-        for (int i=1; i<=y; i++) {
-            x /= 10;
+    public static int juntaNumeros(int num1, int num2) {
+        int digitosSegundo = digitos(num2);
+        for (int i=0; i<digitosSegundo; i++) {
+            num1 = pegaPorDetras(num1, digitoN(num2, i));
         }
-        x = voltea(x);
-        return x*((x<0)?-1:1);
+        return num1;
     }
 
     /**
-     * Esta función te devuelve el número que se encuentra en una posición específica.
-     * @param x
-     * @return Número que se encuentra en la posición deseada.
+     * Voltea un número (invierte el orden de sus dígitos).
+     * Conserva el signo si el número es negativo.
+     * 
+     * @param num el número a voltear
+     * @return el número con sus dígitos en orden inverso
      */
-    public static int digitoN(int x, int y) {
-        if (y>digitos(x)-1) {
-            return -1;
+    public static int voltea(int num) {
+        boolean negativo = num<0;
+        num = Math.abs(num);
+        int volteado = 0;
+        while (num > 0) {
+            volteado = volteado * 10 + num % 10;
+            num /= 10;
         }
-        x = Math.abs(x);
-        x = voltea(x);
-        int digitoActual = 0;
-        for (int i=0; i<=y; i++) {
-            digitoActual = x%10;
-            x/=10;
-        }
-        return digitoActual;
+        return (negativo)?-volteado:volteado;
     }
 
     /**
-     * Esta función cuenta el número de dígitos de un número.
-     * @param
-     * @return Dígitos del número introducido.
+     * Cuenta la cantidad de dígitos que tiene un número.
+     * 
+     * @param num el número del que contar los dígitos
+     * @return la cantidad de dígitos del número
      */
-    public static int digitos(int x) {
-        if (x==0) return 1;
-        x = Math.abs(x);
+    public static int digitos(int num) {
+        num = Math.abs(num);
         int digitos = 0;
-        while (x>0) {
+        do {
             digitos++;
-            x/=10;
-        }
+            num/=10;
+        } while (num>0);
         return digitos;
     }
 
     /**
-     * Esta función te devuelve el menor número primo mayor al número introducido.
-     * @param x
-     * @return Menor primo mayor al número introducido.
+     * Devuelve el dígito que está en una posición determinada de un número.
+     * Las posiciones se cuentan de izquierda a derecha empezando por 0.
+     * 
+     * @param num el número del que extraer el dígito
+     * @param pos la posición del dígito a obtener
+     * @return el dígito en la posición indicada
      */
-    public static int siguientePrimo(int x) {
-        x+=1;
-        while (!esPrimo(x)) {
-            x++;
-        }
-        return x;
+    public static int digitoN(int num, int pos) {
+        num = Math.abs(num);
+        return trozoDeNumero(num, pos, pos);
     }
 
     /**
-     * Esta función te devuelve un valor booleano indicando si el número introducido es o no primo.
-     * @param x
-     * @return True/False
+     * Añade un dígito al final (por la derecha) de un número.
+     * 
+     * @param num el número al que añadir el dígito
+     * @param dig el dígito a añadir
+     * @return el número resultante con el dígito añadido al final
      */
-    public static boolean esPrimo(int x) {
-        if (x <= 1) return false;
-        int limite = (int) Math.sqrt(x);
-        for (int i = 2; i <= limite; i++) {
-            if (x % i == 0) return false;
-        }
-        return true;
+    public static int pegaPorDetras(int num, int dig) {
+        num = num*10+dig;
+        return num;
+    }
+
+    /**
+     * Añade un dígito al principio (por la izquierda) de un número.
+     * 
+     * @param num el número al que añadir el dígito
+     * @param dig el dígito a añadir
+     * @return el número resultante con el dígito añadido al principio
+     */
+    public static int pegaPorDelante(int num, int dig) {
+        return juntaNumeros(dig, num);
     }
 }

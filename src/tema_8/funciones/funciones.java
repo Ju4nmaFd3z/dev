@@ -49,7 +49,11 @@ public interface funciones {
      * @return el número resultante sin los dígitos de la derecha
      */
     public static int quitaPorDetras(int num, int digitos) {
-        num = num/(int)potencia(10, digitos);
+        return (int)quitaPorDetras((long)num, digitos);
+    }
+
+    public static long quitaPorDetras(long num, int digitos) {
+        num = num/(long)potencia(10, digitos);
         return num;
     }
 
@@ -61,7 +65,11 @@ public interface funciones {
      * @return el número resultante sin los dígitos de la izquierda
      */
     public static int quitaPorDelante(int num, int digitos) {
-        num = num%(int)potencia(10, digitos(num)-digitos);
+        return (int)quitaPorDelante((long)num, digitos);
+    }
+
+    public static long quitaPorDelante(long num, int digitos) {
+        num = num%(long)potencia(10, digitos(num)-digitos);
         return num;
     }
 
@@ -73,7 +81,15 @@ public interface funciones {
      * @param exponente el exponente de la potencia
      * @return el resultado de elevar base a exponente
      */
-    public static double potencia(int base, int exponente) {
+    public static int potencia(int base, int exponente) {
+        return (int)potencia((long)base, exponente);
+    }
+
+    public static long potencia(long base, int exponente) {
+        return (long)potencia((double)base, exponente);
+    }
+
+    public static double potencia(double base, int exponente) {
         return (exponente<0)?1.0/_potencia(base, -exponente):(exponente==0)?1:_potencia(base, exponente);
     }
 
@@ -84,7 +100,7 @@ public interface funciones {
      * @param exponente el exponente de la potencia (se usa su valor absoluto)
      * @return el resultado de elevar base a exponente
      */
-    private static int _potencia(int base, int exponente) {
+    private static double _potencia(double base, int exponente) {
         int res = 1;
         for (int i=1; i<=Math.abs(exponente); i++) {
             res*=base;
@@ -109,6 +125,23 @@ public interface funciones {
     }
 
     /**
+     * Devuelve el dígito que está en una posición determinada de un número.
+     * Las posiciones se cuentan de izquierda a derecha empezando por 0.
+     * 
+     * @param num el número del que extraer el dígito
+     * @param pos la posición del dígito a obtener
+     * @return el dígito en la posición indicada
+     */
+    public static int digitoN(int num, int pos) {
+        return (int)digitoN((long)num, pos);
+    }
+
+    public static long digitoN(long num, int pos) {
+        num = Math.abs(num);
+        return trozoDeNumero(num, pos, pos);
+    }
+
+    /**
      * Extrae un trozo de un número desde una posición inicial hasta una posición final.
      * Las posiciones se cuentan de izquierda a derecha empezando por 0.
      * 
@@ -118,6 +151,10 @@ public interface funciones {
      * @return el trozo del número, o el número completo si posIni > posFin
      */
     public static int trozoDeNumero(int num, int posIni, int posFin) {
+        return (int)trozoDeNumero((long)num, posIni, posFin);
+    }
+
+    public static long trozoDeNumero(long num, int posIni, int posFin) {
         if (posIni<=posFin) {
             num = quitaPorDetras(num, digitos(num)-posFin-1);
             num = quitaPorDelante(num, posIni);
@@ -166,6 +203,10 @@ public interface funciones {
      * @return la cantidad de dígitos del número
      */
     public static int digitos(int num) {
+        return (int)digitos((long)num);
+    }
+
+    public static int digitos(long num) {
         num = Math.abs(num);
         int digitos = 0;
         do {
@@ -173,19 +214,6 @@ public interface funciones {
             num/=10;
         } while (num>0);
         return digitos;
-    }
-
-    /**
-     * Devuelve el dígito que está en una posición determinada de un número.
-     * Las posiciones se cuentan de izquierda a derecha empezando por 0.
-     * 
-     * @param num el número del que extraer el dígito
-     * @param pos la posición del dígito a obtener
-     * @return el dígito en la posición indicada
-     */
-    public static int digitoN(int num, int pos) {
-        num = Math.abs(num);
-        return trozoDeNumero(num, pos, pos);
     }
 
     /**

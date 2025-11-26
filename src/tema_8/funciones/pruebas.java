@@ -4,8 +4,8 @@ public class pruebas {
     public static void main(String[] args) {
         // Pruebas básicas
         System.out.println(funciones.esCapicua(12321)); // true
-        System.out.println(funciones.esPrimo(17)); // true
-        System.out.println(funciones.siguientePrimo(10)); // 11
+        System.out.println(funciones.esPrimo(67)); // true
+        System.out.println(funciones.siguientePrimo(100)); // 101
         System.out.println(funciones.voltea(12345)); // 54321
         System.out.println(funciones.digitos(12345)); // 5
         System.out.println(funciones.digitoN(12345, 2)); // 3

@@ -1,4 +1,4 @@
-package experimentos.repasoFunciones.funciones;
+package experimentos.passwd.funciones;
 
 public interface passwdUtility {
     
@@ -140,7 +140,18 @@ public interface passwdUtility {
     }
 
     public static String eliminarEspaciosInternos(String password) {
-        return reducirEspacios(password, 0);
+        if (primerNoEspacio(password) == -1) return "";
+        String res = "";
+        for (int i=0; i<primerNoEspacio(password);i++){
+            res += password.charAt(i);
+        }
+        for (int i=primerNoEspacio(password); i<=ultimoNoEspacio(password);i++){
+            if (!esEspacio(password.charAt(i))) res += password.charAt(i);
+        }
+        for (int i=ultimoNoEspacio(password)+1; i<password.length();i++){
+            res += password.charAt(i);
+        }
+        return res;
     }
 
     public static String sanitizarPassword(String password) {

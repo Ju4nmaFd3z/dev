@@ -1,5 +1,5 @@
-package experimentos.repasoFunciones;
-import experimentos.repasoFunciones.funciones.passwdUtility;
+package experimentos.passwd;
+import experimentos.passwd.funciones.passwdUtility;
 
 public class passwd {
     // =========================

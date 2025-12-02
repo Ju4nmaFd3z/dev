@@ -1,6 +1,6 @@
 package tema_7.Pruebas;
 
-public class tesoro {
+public class tesoroV1 {
     public static void main(String[] args) {
         try {
             final int VACIO = 0;
@@ -29,7 +29,7 @@ public class tesoro {
             do {
                 tesoroX = (int)(Math.random() * 5);
                 tesoroY = (int)(Math.random() * 4);
-            } while ((tesoroX == minaX) && (tesoroY == minaY));
+            } while (tesoroX == minaX && tesoroY == minaY);
             cuadrante[tesoroX][tesoroY] = TESORO;
             
             System.out.println("ENCUENTRA EL TESORO!");
@@ -108,7 +108,7 @@ public class tesoro {
                             pinta = "* ";
                             break;
                         case TESORO:
-                            pinta = "€ ";
+                            pinta = "$ ";
                             break;
                         case INTENTO:
                             pinta = "X ";

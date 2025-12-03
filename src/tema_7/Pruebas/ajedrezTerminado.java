@@ -17,6 +17,7 @@ public class ajedrezTerminado {
     public static final String RESET = "\u001B[0m";
     public static final String FONDO_BLANCO = "\u001B[47m";
     public static final String FONDO_NEGRO = "\u001B[40m";
+    public static final String FONDO_MARRON = "\u001B[48;5;94m";
     
     // Marca una casilla si está dentro del tablero
     public static void marcarCasilla(int[][] tablero, int fila, int columna) {
@@ -69,15 +70,20 @@ public class ajedrezTerminado {
     
     // Muestra el tablero
     public static void mostrarTablero(int[][] tablero, String icono_pieza) {
-        System.out.println("\n   ");
-        System.out.print("   ");
+        System.out.print("      ");
         for (char c = LETRA_MIN; c <= LETRA_MAX; c++) {
-            System.out.print(c + "  ");
+            System.out.print(Character.toUpperCase(c) + "  ");
         }
+        System.out.println();
+        System.out.print("  ");
+        for (char c = LETRA_MIN; c <= LETRA_MAX+2; c++) {
+            System.out.print(FONDO_MARRON+"   ");
+        }
+        System.out.print(RESET);
         System.out.println();
         
         for (int i = 0; i < TAMANIO; i++) {
-            System.out.print((TAMANIO-i) + " ");
+            System.out.print((TAMANIO-i)+" "+FONDO_MARRON+"   "+RESET);
             for (int j = 0; j < TAMANIO; j++) {
                 // Fondo blanco o negro
                 if ((i + j) % 2 == 0) {
@@ -97,12 +103,18 @@ public class ajedrezTerminado {
                 
                 System.out.print(RESET);
             }
-            System.out.println(" " + (TAMANIO-i));
+            System.out.println(FONDO_MARRON+"   "+RESET+" " + (TAMANIO-i));
         }
         
-        System.out.print("   ");
+        System.out.print("  ");
+        for (char c = LETRA_MIN; c <= LETRA_MAX+2; c++) {
+            System.out.print(FONDO_MARRON+"   ");
+        }
+        System.out.print(RESET);
+        System.out.println();
+        System.out.print("      ");
         for (char c = LETRA_MIN; c <= LETRA_MAX; c++) {
-            System.out.print(c + "  ");
+            System.out.print(Character.toUpperCase(c) + "  ");
         }
         System.out.println();
     }

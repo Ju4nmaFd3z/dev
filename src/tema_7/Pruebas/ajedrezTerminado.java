@@ -123,9 +123,10 @@ public class ajedrezTerminado {
         try {
             int[][] tablero = new int[TAMANIO][TAMANIO];
             
+            // TODO: Controlar Letra
             System.out.print("Letra (" + LETRA_MIN + "-" + LETRA_MAX + "): ");
             char letra = System.console().readLine().toLowerCase().charAt(0);
-            
+            // TODO: Controlar Número
             System.out.print("Número (" + NUMERO_MIN + "-" + NUMERO_MAX + "): ");
             int numero = Integer.parseInt(System.console().readLine());
             

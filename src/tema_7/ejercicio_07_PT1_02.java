@@ -11,7 +11,11 @@ public class ejercicio_07_PT1_02 {
         simbolo[7] = '+';
         simbolo[8] = 'Q';
         for (int i=0; i<LONGITUD; i++){
-            System.out.println(simbolo[i]);
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        for (int i=0; i<LONGITUD; i++){
+            System.out.print((simbolo[i]=='\0'?"  ":simbolo[i]+" "));
         }
     }
 }

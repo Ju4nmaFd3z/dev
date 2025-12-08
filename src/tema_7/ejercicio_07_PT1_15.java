@@ -38,7 +38,7 @@ public class ejercicio_07_PT1_15 {
                     System.out.print("╩════");
                 }
                 System.out.println("╝");
-                numIntroducido = Integer.parseInt(System.console().readLine("¿Cuántos son? (Introduzca -1 para salir del programa): "));
+                numIntroducido = Integer.parseInt(System.console().readLine("¿Cuántos son? [Introduzca -1 para salir del programa]: "));
                 boolean mesaVacia = false;
                 int numMesaVacia = 0;
                 boolean mesaConHueco = false;
@@ -60,13 +60,13 @@ public class ejercicio_07_PT1_15 {
                         System.out.println("Por favor, siéntese en la mesa número "+(numMesaVacia+1)+".");
                     } else if (mesaConHueco) {
                         mesa[numMesaConHueco] += numIntroducido;
-                        System.out.println("Por favor, siéntese en la mesa número "+(numMesaConHueco+1)+".");
-                    } else System.out.println("Lo siento, en estos momentos no queda sitio.");
+                        System.out.println("Tendrán que compartir mesa. Por favor, siéntese en la mesa número "+(numMesaConHueco+1)+".");
+                    } else System.out.println("Lo sentimos, en estos momentos no queda sitio.");
                 } else if (numIntroducido>MAX_MESA){
                     System.out.println("Lo sentimos, no admitimos grupos de "+numIntroducido+", haga grupos de "+MAX_MESA+" personas como máximo e intente de nuevo.");
                 } else if (numIntroducido!=-1) System.out.println("Debe introducir una opción correcta");
             } while (numIntroducido!=-1);
-            System.out.println("Gracias. Hasta pronto.");
+            System.out.println("Gracias. Hasta pronto!");
         } catch (NumberFormatException e) {
             System.out.println("Ha introducido un valor incorrecto.");
         } catch (Exception e) {

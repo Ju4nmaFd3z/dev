@@ -51,7 +51,7 @@ public class arrays {
         }
         return copia;
     }
-    public static int[] primos(int[] numeros) {
+    public static int[] primosNoPrimos(int[] numeros) {
         int[] resultado = dameArray(numeros.length);
         int indice = 0;
         for (int i = 0; i < numeros.length; i++) {

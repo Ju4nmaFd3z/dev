@@ -30,7 +30,7 @@ public class ejercicio_07_PT1_14 {
             }
         }
     }
-    // Método auxiliar para comprobar si una palabra es un color
+    // Función para comprobar si una palabra es un color
     public static boolean esColor(String[] colores, String palabra) {
         for (int i=0; i<colores.length; i++) {
             if (colores[i].equalsIgnoreCase(palabra)) {

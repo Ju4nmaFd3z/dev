@@ -8,7 +8,7 @@ Aquí iré organizando todas las actividades, ejercicios y prácticas desarrolla
 
 ## 📚 Estructura del repositorio
 
-Este repositorio está dividido por temas, siguiendo la estructura del contenido impartido en clase. Cada carpeta contiene los ejercicios correspondientes al tema indicado, ordenados y comentados para facilitar su revisión.
+Este repositorio está dividido por temas, siguiendo la estructura de los libros "Aprende Java Con Ejercicios". Cada carpeta contiene los ejercicios correspondientes al tema indicado, ordenados y comentados para facilitar su acceso.
 
 ### 🔗 Acceso directo a los temas:
 
@@ -16,6 +16,10 @@ Este repositorio está dividido por temas, siguiendo la estructura del contenido
 - [Ejercicios Tema 2](./src/tema_2/)
 - [Ejercicios Tema 3](./src/tema_3/)
 - [Ejercicios Tema 4](./src/tema_4/)
+- [Ejercicios Tema 5](./src/tema_5/)
+- [Ejercicios Tema 6](./src/tema_6/)
+- [Ejercicios Tema 7](./src/tema_7/)
+- [Ejercicios Tema 8](./src/tema_8/)
 
 ---
 
